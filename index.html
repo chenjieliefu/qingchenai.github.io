@@ -1,0 +1,863 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>QINGCHEN — AI 产品经理</title>
+<meta name="description" content="陈家庆的个人展示页 — AI 产品经理，专注大模型应用落地。" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet" />
+<style>
+:root {
+  /* Colors */
+  --color-primary-ink: #1d1d1f;
+  --color-mid-gray: #707070;
+  --color-deep-gray: #474747;
+  --color-hairline: #d6d6d6;
+  --color-canvas: #f5f5f7;
+  --color-paper: #ffffff;
+  --color-cool-wash: #e8e8ed;
+  --color-faded-surface: #fafafc;
+  --color-quiet-dot: #777779;
+  --color-electric-blue: #0071e3;
+  --color-link-blue: #0066cc;
+  --color-ember: #b64400;
+  --color-sky: #c8d8e0;
+  --color-citrus: #dddc8c;
+  --color-starlight: #f0e4d3;
+  --color-silver: #e3e4e5;
+  --color-blush: #e8d0d0;
+  --color-indigo: #596680;
+  --color-midnight: #2e3642;
+
+  /* Typography — families */
+  --font-sf-pro-display: 'Inter', ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "PingFang SC", "Microsoft YaHei", sans-serif;
+  --font-sf-pro-text: 'Inter', ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "PingFang SC", "Microsoft YaHei", sans-serif;
+
+  /* Type scale */
+  --text-micro: 12px;   --leading-micro: 16;   --tracking-micro: -0.12px;
+  --text-caption: 14px; --leading-caption: 18; --tracking-caption: -0.224px;
+  --text-body-sm: 17px; --leading-body-sm: 25; --tracking-body-sm: -0.374px;
+  --text-body: 21px;    --leading-body: 29;    --tracking-body: 0.231px;
+  --text-body-lg: 28px; --leading-body-lg: 32; --tracking-body-lg: 0.196px;
+  --text-subheading: 32px; --leading-subheading: 36; --tracking-subheading: 0.128px;
+  --text-heading-sm: 40px; --leading-heading-sm: 48;
+  --text-heading: 56px;    --leading-heading: 60; --tracking-heading: -0.28px;
+  --text-heading-lg: 80px; --leading-heading-lg: 84; --tracking-heading-lg: -1.2px;
+  --text-display: 96px;    --leading-display: 100; --tracking-display: -1.44px;
+
+  /* Weights */
+  --fw-regular: 400; --fw-medium: 500; --fw-semibold: 600; --fw-bold: 700;
+
+  /* Radius */
+  --radius-cards: 28px;
+  --radius-links: 10px;
+  --radius-badges: 36px;
+  --radius-buttons: 980px;
+  --radius-smallbuttons: 999px;
+  --radius-productimages: 28px;
+
+  --page-max-width: 1200px;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+
+body {
+  font-family: var(--font-sf-pro-text);
+  font-weight: var(--fw-regular);
+  font-size: var(--text-body-sm);
+  line-height: calc(var(--leading-body-sm) / 17);
+  letter-spacing: var(--tracking-body-sm);
+  color: var(--color-primary-ink);
+  background: var(--color-paper);
+  -webkit-font-smoothing: antialiased;
+  font-feature-settings: normal;
+  font-variant-numeric: normal;
+}
+
+a { color: inherit; text-decoration: none; }
+ul { list-style: none; }
+
+.container {
+  max-width: var(--page-max-width);
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+/* ============ Global nav ============ */
+.global-nav {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  height: 44px;
+  background: rgba(250,250,252,0.82);
+  backdrop-filter: blur(20px) saturate(180%);
+  -webkit-backdrop-filter: blur(20px) saturate(180%);
+  border-bottom: 1px solid rgba(0,0,0,0.06);
+}
+.nav-inner {
+  max-width: 1024px;
+  margin: 0 auto;
+  padding: 0 22px;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 32px;
+}
+.nav-logo {
+  font-family: var(--font-sf-pro-display);
+  font-weight: var(--fw-semibold);
+  font-size: 15px;
+  letter-spacing: -0.015em;
+  white-space: nowrap;
+  transition: opacity 0.2s ease;
+}
+.nav-logo:hover { opacity: 0.62; }
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 32px;
+}
+.nav-links a {
+  font-size: 12px;
+  letter-spacing: -0.01em;
+  color: var(--color-deep-gray);
+  transition: color 0.2s ease, opacity 0.2s ease;
+  white-space: nowrap;
+}
+.nav-links a:hover {
+  color: var(--color-primary-ink);
+  opacity: 0.62;
+}
+
+@media (max-width: 720px) {
+  .nav-inner { padding: 0 18px; gap: 18px; }
+  .nav-logo { font-size: 14px; }
+  .nav-links { gap: 18px; }
+  .nav-links a { font-size: 11px; }
+  .nav-item-long { display: none; }
+}
+
+/* ============ Hero ============ */
+.hero {
+  position: relative;
+  background:
+    radial-gradient(circle at 15% 12%, rgba(200,216,224,0.42), transparent 29%),
+    radial-gradient(circle at 86% 6%, rgba(240,228,211,0.58), transparent 27%),
+    linear-gradient(180deg, #ffffff 0%, #fafafc 100%);
+  padding: 124px 0 112px;
+  text-align: center;
+  overflow: hidden;
+}
+.hero .container { max-width: 1280px; }
+.hero-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  min-height: 32px;
+  padding: 6px 14px;
+  border: 1px solid rgba(0,0,0,0.08);
+  border-radius: var(--radius-smallbuttons);
+  background: rgba(255,255,255,0.68);
+  font-size: var(--text-caption);
+  font-weight: var(--fw-medium);
+  letter-spacing: var(--tracking-caption);
+  color: var(--color-deep-gray);
+  margin-bottom: 28px;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.03);
+}
+.hero h1 {
+  font-family: var(--font-sf-pro-display);
+  font-weight: var(--fw-semibold);
+  font-size: clamp(48px, 7.6vw, 96px);
+  line-height: 1.04;
+  letter-spacing: -0.05em;
+  color: var(--color-primary-ink);
+  text-wrap: balance;
+}
+.hero .subhead {
+  font-size: clamp(20px, 2.2vw, 28px);
+  line-height: 1.5;
+  letter-spacing: var(--tracking-body-lg);
+  color: var(--color-mid-gray);
+  max-width: 800px;
+  margin: 36px auto 0;
+  text-wrap: balance;
+}
+.hero-actions {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 12px;
+  margin-top: 40px;
+  flex-wrap: wrap;
+}
+.btn {
+  font-family: var(--font-sf-pro-text);
+  font-size: var(--text-body-sm);
+  font-weight: var(--fw-regular);
+  letter-spacing: var(--tracking-body-sm);
+  border-radius: var(--radius-buttons);
+  padding: 13px 24px;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  cursor: pointer;
+  border: 1px solid transparent;
+  transition: color 0.22s ease, transform 0.22s ease, background 0.22s ease, border-color 0.22s ease, box-shadow 0.22s ease;
+}
+.btn:active { transform: scale(0.97); }
+.btn-primary {
+  background: var(--color-electric-blue);
+  color: var(--color-paper);
+}
+.btn-primary:hover {
+  background: #0077ed;
+  transform: translateY(-2px);
+  box-shadow: 0 9px 24px rgba(0,113,227,0.24);
+}
+.btn-ghost {
+  background: var(--color-paper);
+  color: var(--color-primary-ink);
+  border-color: rgba(0,0,0,0.18);
+}
+.btn-ghost:hover {
+  color: var(--color-paper);
+  background: var(--color-electric-blue);
+  border-color: var(--color-electric-blue);
+  transform: translateY(-2px);
+  box-shadow: 0 9px 24px rgba(0,113,227,0.24);
+}
+.link-arrow {
+  font-size: var(--text-body-sm);
+  color: var(--color-link-blue);
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+}
+.link-arrow:hover { text-decoration: underline; }
+.link-arrow .arrow { transition: transform 0.2s ease; }
+.link-arrow:hover .arrow { transform: translateX(3px); }
+
+/* ============ Showcase (auto-cycling) ============ */
+.showcase {
+  position: relative;
+  max-width: 1040px;
+  margin: 76px auto 0;
+}
+.showcase-slides {
+  position: relative;
+  height: 440px;
+  border-radius: var(--radius-cards);
+  overflow: hidden;
+}
+.showcase-slide {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 48px 32px;
+  border-radius: var(--radius-cards);
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.65s ease, visibility 0.65s ease;
+}
+.showcase-slide.is-active {
+  opacity: 1;
+  visibility: visible;
+}
+.slide-content {
+  text-align: center;
+  max-width: 640px;
+}
+.slide-tag {
+  display: inline-block;
+  font-size: var(--text-caption);
+  font-weight: var(--fw-medium);
+  letter-spacing: var(--tracking-caption);
+  color: var(--color-ember);
+  margin-bottom: 14px;
+}
+.slide-title {
+  font-family: var(--font-sf-pro-display);
+  font-weight: var(--fw-semibold);
+  font-size: clamp(24px, 3.6vw, 40px);
+  line-height: 1.15;
+  letter-spacing: -0.01em;
+  color: var(--color-primary-ink);
+  margin-bottom: 14px;
+}
+.slide-desc {
+  font-size: var(--text-body-sm);
+  line-height: calc(var(--leading-body-sm) / 17);
+  color: var(--color-deep-gray);
+  max-width: 520px;
+  margin: 0 auto 22px;
+}
+.slide-link {
+  font-size: var(--text-body-sm);
+  color: var(--color-link-blue);
+}
+.slide-link:hover { text-decoration: underline; }
+.slide-link .arrow { transition: transform 0.2s ease; }
+.slide-link:hover .arrow { transform: translateX(3px); }
+
+.showcase-dots {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  margin-top: 24px;
+}
+.dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  border: none;
+  padding: 0;
+  background: var(--color-quiet-dot);
+  cursor: pointer;
+  transition: background 0.2s ease, transform 0.2s ease;
+}
+.dot.is-active { background: var(--color-primary-ink); transform: scale(1.3); }
+
+@media (max-width: 720px) {
+  .hero { padding: 88px 0 84px; }
+  .hero h1 { font-size: clamp(44px, 14vw, 64px); }
+  .hero .subhead { margin-top: 26px; }
+  .hero-actions { margin-top: 32px; }
+  .showcase { margin-top: 56px; }
+  .showcase-slides { height: 380px; }
+}
+
+/* ============ Section shared ============ */
+.section { padding: 100px 0; }
+.section-gray { background: var(--color-canvas); }
+.section-white { background: var(--color-paper); }
+.section-head {
+  text-align: center;
+  margin-bottom: 56px;
+}
+.section-head h2 {
+  font-family: var(--font-sf-pro-display);
+  font-weight: var(--fw-semibold);
+  font-size: clamp(28px, 5vw, 56px);
+  line-height: 1.07;
+  letter-spacing: -0.01em;
+  color: var(--color-primary-ink);
+}
+.section-head p {
+  font-size: var(--text-body);
+  line-height: calc(var(--leading-body) / 21);
+  letter-spacing: var(--tracking-body);
+  color: var(--color-mid-gray);
+  max-width: 620px;
+  margin: 14px auto 0;
+}
+
+/* ============ Blog list ============ */
+.post-list {
+  max-width: 780px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+}
+.post-item {
+  padding: 30px 0;
+  border-bottom: 1px solid var(--color-hairline);
+}
+.post-item:first-child { padding-top: 0; }
+.post-meta {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 10px;
+}
+.post-date {
+  font-size: var(--text-caption);
+  letter-spacing: var(--tracking-caption);
+  color: var(--color-mid-gray);
+}
+.post-cat {
+  font-size: var(--text-caption);
+  font-weight: var(--fw-medium);
+  letter-spacing: var(--tracking-caption);
+  color: var(--color-ember);
+}
+.post-item h3 {
+  font-family: var(--font-sf-pro-display);
+  font-weight: var(--fw-semibold);
+  font-size: var(--text-body-lg);
+  line-height: calc(var(--leading-body-lg) / 28);
+  color: var(--color-primary-ink);
+  margin-bottom: 10px;
+}
+.post-item h3 a:hover { color: var(--color-link-blue); }
+.post-item p {
+  font-size: var(--text-body-sm);
+  line-height: calc(var(--leading-body-sm) / 17);
+  color: var(--color-mid-gray);
+  margin-bottom: 14px;
+}
+.view-all {
+  text-align: center;
+  margin-top: 40px;
+}
+
+/* ============ Share / article list ============ */
+.share-list {
+  max-width: 780px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+}
+.share-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+  padding: 24px 0;
+  border-bottom: 1px solid var(--color-hairline);
+}
+.share-item:first-child { padding-top: 0; }
+.share-item .info h3 {
+  font-family: var(--font-sf-pro-display);
+  font-weight: var(--fw-semibold);
+  font-size: var(--text-body-lg);
+  line-height: calc(var(--leading-body-lg) / 28);
+  color: var(--color-primary-ink);
+  margin-bottom: 6px;
+}
+.share-item .info h3 a:hover { color: var(--color-link-blue); }
+.share-item .src {
+  font-size: var(--text-caption);
+  letter-spacing: var(--tracking-caption);
+  color: var(--color-mid-gray);
+}
+.share-item .go {
+  flex-shrink: 0;
+  font-size: var(--text-caption);
+  color: var(--color-link-blue);
+}
+
+/* ============ External links (找到我) ============ */
+.link-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 20px;
+}
+.link-card {
+  background: var(--color-paper);
+  border: 1px solid rgba(0,0,0,0.05);
+  border-radius: var(--radius-cards);
+  padding: 30px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  min-height: 150px;
+  transition: transform 0.2s ease, background 0.25s ease;
+}
+.link-card:hover {
+  transform: translateY(-3px);
+  background: var(--color-cool-wash);
+}
+.link-card:hover .platform { color: var(--color-link-blue); }
+.link-card .platform {
+  font-family: var(--font-sf-pro-display);
+  font-weight: var(--fw-semibold);
+  font-size: var(--text-body-lg);
+  line-height: calc(var(--leading-body-lg) / 28);
+  letter-spacing: var(--tracking-body-lg);
+  color: var(--color-primary-ink);
+}
+.link-card .desc {
+  font-size: var(--text-body-sm);
+  line-height: calc(var(--leading-body-sm) / 17);
+  color: var(--color-mid-gray);
+  flex: 1;
+}
+.link-card .go {
+  font-size: var(--text-body-sm);
+  color: var(--color-link-blue);
+}
+.qrcode-card {
+  position: relative;
+  padding-right: 118px;
+}
+.qrcode-preview {
+  position: absolute;
+  top: 50%;
+  right: 26px;
+  width: 76px;
+  height: 76px;
+  border-radius: 8px;
+  transform: translateY(-50%);
+  box-shadow: 0 4px 14px rgba(0,0,0,0.08);
+}
+
+/* ============ About ============ */
+.about-wrap {
+  max-width: 720px;
+  margin: 0 auto;
+}
+.profile-card {
+  background: var(--color-paper);
+  border-radius: var(--radius-cards);
+  padding: 48px;
+  border: 1px solid rgba(0,0,0,0.05);
+  box-shadow: 0 18px 50px rgba(0,0,0,0.05);
+}
+.profile-card .name {
+  font-family: var(--font-sf-pro-display);
+  font-weight: var(--fw-semibold);
+  font-size: var(--text-heading-sm);
+  line-height: 1.1;
+  color: var(--color-primary-ink);
+  margin-bottom: 8px;
+}
+.profile-card .title {
+  font-size: var(--text-body-sm);
+  color: var(--color-deep-gray);
+  margin-bottom: 24px;
+}
+.profile-card p {
+  font-size: var(--text-body-sm);
+  line-height: calc(var(--leading-body-sm) / 17);
+  color: var(--color-mid-gray);
+  margin-bottom: 16px;
+}
+.profile-card p:last-child { margin-bottom: 0; }
+.profile-card .highlights {
+  list-style: none;
+  margin: 4px 0 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.profile-card .highlights li {
+  font-size: var(--text-body-sm);
+  line-height: calc(var(--leading-body-sm) / 17);
+  color: var(--color-primary-ink);
+}
+.profile-card .closing {
+  font-size: var(--text-body-sm);
+  line-height: calc(var(--leading-body-sm) / 17);
+  color: var(--color-primary-ink);
+  font-weight: var(--fw-medium);
+}
+
+.about-links {
+  margin-top: 48px;
+}
+.findme-title {
+  font-family: var(--font-sf-pro-display);
+  font-weight: var(--fw-semibold);
+  font-size: var(--text-body-lg);
+  line-height: calc(var(--leading-body-lg) / 28);
+  color: var(--color-primary-ink);
+  text-align: center;
+  margin-bottom: 24px;
+}
+
+/* ============ Footer ============ */
+.footer {
+  background: var(--color-canvas);
+  padding: 40px 0 48px;
+  border-top: 1px solid var(--color-hairline);
+}
+.footer-inner {
+  max-width: var(--page-max-width);
+  margin: 0 auto;
+  padding: 0 24px;
+}
+.footer-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 20px;
+  padding-bottom: 28px;
+  margin-bottom: 28px;
+  border-bottom: 1px solid var(--color-hairline);
+}
+.footer-links {
+  display: flex;
+  gap: 24px;
+  flex-wrap: wrap;
+}
+.footer-links a {
+  font-size: var(--text-caption);
+  letter-spacing: var(--tracking-caption);
+  color: var(--color-deep-gray);
+}
+.footer-links a:hover { text-decoration: underline; }
+.footer-legal {
+  font-size: var(--text-micro);
+  line-height: 1.33;
+  letter-spacing: var(--tracking-micro);
+  color: var(--color-mid-gray);
+}
+.footer-legal p { margin-bottom: 10px; }
+.footer-legal a { color: var(--color-link-blue); }
+.footer-legal a:hover { text-decoration: underline; }
+</style>
+</head>
+<body>
+
+<!-- Global nav -->
+<header class="global-nav">
+  <nav class="nav-inner">
+    <a href="#home" class="nav-logo" aria-label="QINGCHEN首页">QINGCHEN</a>
+    <div class="nav-links">
+      <a href="#home">首页</a>
+      <a href="#blog">博客</a>
+      <a href="#share" class="nav-item-long">优秀文章分享</a>
+      <a href="#about">关于</a>
+    </div>
+  </nav>
+</header>
+
+<!-- Hero = 首页 -->
+<section class="hero" id="home">
+  <div class="container">
+    <p class="hero-eyebrow">AI Product Manager</p>
+    <h1>你好，我是清晨 👋</h1>
+    <p class="subhead">一名专注大模型应用落地的AI产品经理。我热衷于把 AI 能力翻译成真正可用的产品 —— 不做炫技的 Demo，只做实用、以用户为中心的产品。</p>
+    <div class="hero-actions">
+      <a href="#blog" class="btn btn-ghost">我的博客</a>
+      <a href="#share" class="btn btn-ghost">优秀文章分享</a>
+      <a href="#about" class="btn btn-ghost">关于我</a>
+    </div>
+
+    <!-- 自动轮播展示：推荐文章 / 博客 -->
+    <div class="showcase" id="showcase">
+      <div class="showcase-slides">
+        <!-- 幻灯片 1：推荐文章 -->
+        <div class="showcase-slide is-active" style="background: linear-gradient(160deg, #c8d8e0 0%, #eef2f5 55%, #f0e4d3 100%);">
+          <div class="slide-content">
+            <span class="slide-tag">推荐文章</span>
+            <h3 class="slide-title">我实测了全网爆火的grill-me技能，发现它才是AI编程的正确打开方式</h3>
+            <p class="slide-desc">一个只有几句话、却被安装超过 60 万次的 Skill，如何让 AI 从回答者变成主动追问者。</p>
+            <a href="https://www.woshipm.com/ai/6434508.html" target="_blank" rel="noopener" class="slide-link">阅读推荐 <span class="arrow">›</span></a>
+          </div>
+        </div>
+        <!-- 幻灯片 2：博客 -->
+        <div class="showcase-slide" style="background: linear-gradient(160deg, #e8d0d0 0%, #f3e8e8 55%, #f5f5f7 100%);">
+          <div class="slide-content">
+            <span class="slide-tag">最新博客</span>
+            <h3 class="slide-title">用DeepSeek Harness两小时做出一个macOS应用后，我看到了它的野心</h3>
+            <p class="slide-desc">从「一切皆插件」出发，体验 DeepSeek Harness 如何为 Agent 搭建可自由组合的工作环境。</p>
+            <a href="https://www.woshipm.com/ai/6447090.html" target="_blank" rel="noopener" class="slide-link">继续读 <span class="arrow">›</span></a>
+          </div>
+        </div>
+      </div>
+      <div class="showcase-dots" id="showcaseDots">
+        <button class="dot is-active" aria-label="第 1 页"></button>
+        <button class="dot" aria-label="第 2 页"></button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 博客 -->
+<section class="section section-gray" id="blog">
+  <div class="container">
+    <div class="section-head">
+      <h2>博客</h2>
+      <p>个人思考、产品见解、AI研究 · 持续更新</p>
+    </div>
+    <div class="post-list">
+      <div class="post-item">
+        <div class="post-meta">
+          <span class="post-date">2026-08-14</span>
+          <span class="post-cat">AI · 人人都是产品经理</span>
+        </div>
+        <h3><a href="https://www.woshipm.com/ai/6447090.html" target="_blank" rel="noopener">用DeepSeek Harness两小时做出一个macOS应用后，我看到了它的野心</a></h3>
+        <p>从「一切皆插件」出发，体验 DeepSeek Harness 如何为 Agent 搭建一套可以自由组合的工作环境。</p>
+        <a href="https://www.woshipm.com/ai/6447090.html" target="_blank" rel="noopener" class="link-arrow">继续读 <span class="arrow">›</span></a>
+      </div>
+      <div class="post-item">
+        <div class="post-meta">
+          <span class="post-date">2026-08-11</span>
+          <span class="post-cat">AI · 人人都是产品经理</span>
+        </div>
+        <h3><a href="https://www.woshipm.com/ai/6444287.html" target="_blank" rel="noopener">AI 最大的机会，不是硬件，而是数据资产</a></h3>
+        <p>硬件是入口，数据是原料，能被纠正并持续更新的个人模型才是真正值得积累的资产。</p>
+        <a href="https://www.woshipm.com/ai/6444287.html" target="_blank" rel="noopener" class="link-arrow">继续读 <span class="arrow">›</span></a>
+      </div>
+      <div class="post-item">
+        <div class="post-meta">
+          <span class="post-date">2026-08-11</span>
+          <span class="post-cat">AI · 人人都是产品经理</span>
+        </div>
+        <h3><a href="https://www.woshipm.com/ai/6444269.html" target="_blank" rel="noopener">当AI 开始持续工作，聊天框还够用吗？</a></h3>
+        <p>当 AI 从一问一答走向持续执行，任务面板、优先级和返工机制正在重新定义人与 AI 的协作界面。</p>
+        <a href="https://www.woshipm.com/ai/6444269.html" target="_blank" rel="noopener" class="link-arrow">继续读 <span class="arrow">›</span></a>
+      </div>
+      <div class="post-item">
+        <div class="post-meta">
+          <span class="post-date">2026-08-10</span>
+          <span class="post-cat">分析评测 · 人人都是产品经理</span>
+        </div>
+        <h3><a href="https://www.woshipm.com/evaluating/6443336.html" target="_blank" rel="noopener">Loopit已经让创作变简单， 下一步该让作品走出去</a></h3>
+        <p>从一句话生成可玩的互动作品之后，AI 创作产品还需要解决作品分发与被看见的问题。</p>
+        <a href="https://www.woshipm.com/evaluating/6443336.html" target="_blank" rel="noopener" class="link-arrow">继续读 <span class="arrow">›</span></a>
+      </div>
+    </div>
+    <div class="view-all">
+      <a href="blog.html" class="link-arrow">查看全部博客 <span class="arrow">›</span></a>
+    </div>
+  </div>
+</section>
+
+<!-- 优秀文章分享 -->
+<section class="section section-white" id="share">
+  <div class="container">
+    <div class="section-head">
+      <h2>优秀文章分享</h2>
+      <p>读过的好文章，值得反复读</p>
+    </div>
+    <div class="share-list">
+      <div class="share-item">
+        <div class="info">
+          <h3><a href="https://www.woshipm.com/ai/6434508.html" target="_blank" rel="noopener">我实测了全网爆火的grill-me技能，发现它才是AI编程的正确打开方式</a></h3>
+          <span class="src">AI智能 · 2026-07-23 · 人人都是产品经理</span>
+        </div>
+        <a href="https://www.woshipm.com/ai/6434508.html" target="_blank" rel="noopener" class="go">阅读 ↗</a>
+      </div>
+      <div class="share-item">
+        <div class="info">
+          <h3><a href="https://www.woshipm.com/it/6188609.html" target="_blank" rel="noopener">巨头入局：腾讯、字节的“短剧棋局”</a></h3>
+          <span class="src">业界动态 · 2025-03-06 · 人人都是产品经理</span>
+        </div>
+        <a href="https://www.woshipm.com/it/6188609.html" target="_blank" rel="noopener" class="go">阅读 ↗</a>
+      </div>
+      <div class="share-item">
+        <div class="info">
+          <h3><a href="https://www.woshipm.com/zhichang/6333618.html" target="_blank" rel="noopener">产品经理，你的领导不是人，是一股势力！</a></h3>
+          <span class="src">职场攻略 · 2026-01-27 · 人人都是产品经理</span>
+        </div>
+        <a href="https://www.woshipm.com/zhichang/6333618.html" target="_blank" rel="noopener" class="go">阅读 ↗</a>
+      </div>
+      <div class="share-item">
+        <div class="info">
+          <h3><a href="https://www.woshipm.com/ai/6334333.html" target="_blank" rel="noopener">一文讲透AI的三大核心要素之一：算力</a></h3>
+          <span class="src">AI智能 · 2026-01-28 · 人人都是产品经理</span>
+        </div>
+        <a href="https://www.woshipm.com/ai/6334333.html" target="_blank" rel="noopener" class="go">阅读 ↗</a>
+      </div>
+    </div>
+    <div class="view-all">
+      <a href="shares.html" class="link-arrow">查看全部分享 <span class="arrow">›</span></a>
+    </div>
+  </div>
+</section>
+
+<!-- 关于我（含找到我） -->
+<section class="section section-gray" id="about">
+  <div class="container">
+    <div class="section-head">
+      <h2>关于我</h2>
+      <p>关于我，和我在做的事</p>
+    </div>
+    <div class="about-wrap">
+      <div class="profile-card">
+        <div class="name">清晨（真名：陈家庆）</div>
+        <div class="title">一名AI 产品经理</div>
+        <p>热衷于将新兴的 AI 技术转化为实用、以用户为中心的产品。</p>
+        <p>喜欢探索 AI 编程（AI Coding）、智能体工作流以及人与 AI 的协作，并致力于连接产品战略、用户需求与技术实现。</p>
+        <ul class="highlights">
+          <li>🤖 AI 产品管理</li>
+          <li>💻 AI 编程与快速原型开发</li>
+          <li>🧠 AI 智能体与工作流自动化</li>
+          <li>🚀 将想法转化为真正的产品</li>
+          <li>🌱 持续学习、创造和实验</li>
+        </ul>
+        <p class="closing">让我们一起用 AI 创造有意义的产品。</p>
+      </div>
+    </div>
+    <div class="about-links">
+      <h3 class="findme-title">哪里可以找到我</h3>
+      <div class="link-grid">
+        <a href="https://github.com/chenjieliefu" target="_blank" rel="noopener" class="link-card">
+          <span class="platform">GitHub</span>
+          <span class="desc">代码与开源项目</span>
+          <span class="go">前往 ↗</span>
+        </a>
+        <a href="https://www.woshipm.com/u/1685127" target="_blank" rel="noopener" class="link-card">
+          <span class="platform">人人都是产品经理</span>
+          <span class="desc">产品文章与专栏</span>
+          <span class="go">前往 ↗</span>
+        </a>
+        <a href="https://www.xiaohongshu.com/user/profile/6a4db56c0000000010001003" target="_blank" rel="noopener" class="link-card">
+          <span class="platform">小红书</span>
+          <span class="desc">产品日常与读书笔记</span>
+          <span class="go">前往 ↗</span>
+        </a>
+        <a href="assets/wechat-qrcode.jpg" target="_blank" rel="noopener" class="link-card qrcode-card">
+          <span class="platform">微信公众号</span>
+          <span class="desc">深度长文 · 扫码关注</span>
+          <span class="go">查看大图 ↗</span>
+          <img class="qrcode-preview" src="assets/wechat-qrcode.jpg" alt="陈家庆微信公众号二维码" width="76" height="76" />
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer class="footer">
+  <div class="footer-inner">
+    <div class="footer-top">
+      <div class="nav-logo">QINGCHEN</div>
+      <div class="footer-links">
+        <a href="#home">首页</a>
+        <a href="#blog">博客</a>
+        <a href="#share">优秀文章分享</a>
+        <a href="#about">关于</a>
+        <a href="https://github.com/chenjieliefu" target="_blank" rel="noopener">GitHub</a>
+        <a href="https://www.woshipm.com/u/1685127" target="_blank" rel="noopener">人人都是产品经理</a>
+        <a href="https://www.xiaohongshu.com/user/profile/6a4db56c0000000010001003" target="_blank" rel="noopener">小红书</a>
+        <a href="assets/wechat-qrcode.jpg" target="_blank" rel="noopener">微信公众号</a>
+      </div>
+    </div>
+    <div class="footer-legal">
+      <p>© QINGCHEN · 保留所有权利。</p>
+      <p>内容与链接持续更新，欢迎通过以上平台与我交流。</p>
+    </div>
+  </div>
+</footer>
+
+<script>
+// ===== 自动轮播展示区 =====
+const showcase = document.getElementById('showcase');
+const slides = [...document.querySelectorAll('.showcase-slide')];
+const dots = [...document.querySelectorAll('.showcase-dots .dot')];
+let current = 0;
+let timer = null;
+
+function goTo(index) {
+  current = (index + slides.length) % slides.length;
+  slides.forEach((s, i) => s.classList.toggle('is-active', i === current));
+  dots.forEach((d, i) => d.classList.toggle('is-active', i === current));
+}
+
+function next() { goTo(current + 1); }
+function start() { if (timer) clearInterval(timer); timer = setInterval(next, 4500); }
+function stop() { clearInterval(timer); timer = null; }
+
+dots.forEach((d, i) => {
+  d.addEventListener('click', () => { goTo(i); start(); });
+});
+
+// 鼠标悬停时暂停，移开继续轮播
+showcase.addEventListener('mouseenter', stop);
+showcase.addEventListener('mouseleave', start);
+
+start();
+</script>
+</body>
+</html>
