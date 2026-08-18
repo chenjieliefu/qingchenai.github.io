@@ -548,6 +548,36 @@ ul { list-style: none; }
   color: var(--color-primary-ink);
   font-weight: var(--fw-medium);
 }
+.profile-card .contact-info {
+  margin-top: 28px;
+  padding-top: 24px;
+  border-top: 1px solid var(--color-hairline);
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+.profile-card .contact-item {
+  display: flex;
+  align-items: baseline;
+  gap: 12px;
+  font-size: var(--text-body-sm);
+  line-height: calc(var(--leading-body-sm) / 17);
+}
+.profile-card .contact-label {
+  flex: 0 0 56px;
+  color: var(--color-mid-gray);
+}
+.profile-card .contact-value {
+  color: var(--color-primary-ink);
+  font-weight: var(--fw-medium);
+  word-break: break-all;
+}
+.profile-card a.contact-value {
+  color: var(--color-link-blue);
+}
+.profile-card a.contact-value:hover {
+  text-decoration: underline;
+}
 
 .about-links {
   margin-top: 48px;
@@ -785,6 +815,16 @@ ul { list-style: none; }
           <li>🌱 持续学习、创造和实验</li>
         </ul>
         <p class="closing">让我们一起用 AI 创造有意义的产品。</p>
+        <div class="contact-info">
+          <div class="contact-item">
+            <span class="contact-label">WX</span>
+            <span class="contact-value">JQ04041023</span>
+          </div>
+          <div class="contact-item">
+            <span class="contact-label">邮箱</span>
+            <a class="contact-value" href="mailto:18233602932@163.com">18233602932@163.com</a>
+          </div>
+        </div>
       </div>
     </div>
     <div class="about-links">
