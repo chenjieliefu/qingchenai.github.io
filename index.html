@@ -157,6 +157,8 @@ ul { list-style: none; }
 .hero-eyebrow {
   display: inline-flex;
   align-items: center;
+  justify-content: center;
+  min-width: 180px;
   min-height: 32px;
   padding: 6px 14px;
   border: 1px solid rgba(0,0,0,0.08);
@@ -168,6 +170,19 @@ ul { list-style: none; }
   color: var(--color-deep-gray);
   margin-bottom: 28px;
   box-shadow: 0 1px 3px rgba(0,0,0,0.03);
+}
+.typewriter-cursor {
+  display: inline-block;
+  width: 1.5px;
+  height: 1.05em;
+  margin-left: 3px;
+  background: var(--color-electric-blue);
+  vertical-align: -0.16em;
+  animation: cursor-blink 1s step-end infinite;
+}
+@keyframes cursor-blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
 }
 .hero h1 {
   font-family: var(--font-sf-pro-display);
@@ -633,9 +648,181 @@ ul { list-style: none; }
 .footer-legal p { margin-bottom: 10px; }
 .footer-legal a { color: var(--color-link-blue); }
 .footer-legal a:hover { text-decoration: underline; }
+
+/* ============ 科技感增强：瓦力进度条 & 滚动渐显 ============ */
+.wall-e-progress {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 101;
+  pointer-events: none;
+}
+.wall-e-track {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 3px;
+  background: rgba(0, 0, 0, 0.08);
+}
+.wall-e-fill {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 3px;
+  background: linear-gradient(90deg, #0066cc 0%, #0071e3 60%, #7ab8ff 100%);
+  transform: scaleX(0);
+  transform-origin: 0 50%;
+}
+.wall-e {
+  position: absolute;
+  top: 2px;
+  left: 0;
+  width: 34px;
+  opacity: 0;
+  transform: translateX(0);
+  transition: opacity 0.35s ease;
+  will-change: transform;
+}
+.wall-e-run {
+  transform-origin: 50% 100%;
+  animation: wall-e-run 0.6s ease-in-out infinite;
+}
+.wall-e svg {
+  display: block;
+  width: 100%;
+  height: auto;
+  filter: drop-shadow(0 1px 3px rgba(0, 0, 0, 0.22));
+}
+.wall-e-dust {
+  position: absolute;
+  bottom: 4px;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: rgba(0, 0, 0, 0.16);
+  animation: wall-e-dust 0.85s ease-out infinite;
+}
+.wall-e-dust--1 { left: -7px; }
+.wall-e-dust--2 { left: -13px; animation-delay: 0.42s; }
+@keyframes wall-e-run {
+  0%, 100% { transform: rotate(6deg) translateY(0); }
+  50%      { transform: rotate(10deg) translateY(-1.5px); }
+}
+@keyframes wall-e-dust {
+  0%   { transform: translate(0, 0) scale(0.35); opacity: 0; }
+  30%  { opacity: 0.45; }
+  100% { transform: translate(-13px, -4px) scale(1.5); opacity: 0; }
+}
+.reveal {
+  opacity: 0;
+  transform: translateY(26px);
+  transition: opacity 0.75s cubic-bezier(0.16, 1, 0.3, 1), transform 0.75s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: opacity, transform;
+}
+.reveal.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+@media (prefers-reduced-motion: reduce) {
+  .typewriter-cursor {
+    animation: none;
+  }
+  .reveal {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+  .wall-e-progress { display: none; }
+}
+
+/* ============ 吉祥物：标题旁的小瓦力（替代 👋） ============ */
+.walle-greet {
+  display: inline-block;
+  height: 0.95em;
+  margin-left: 0.08em;
+  vertical-align: -0.1em;
+  animation: mascot-bob 3.6s ease-in-out infinite;
+}
+.walle-greet svg {
+  display: block;
+  height: 100%;
+  width: auto;
+}
+.we-mascot-lens {
+  transform-box: fill-box;
+  transform-origin: center;
+  animation: mascot-blink 4.5s infinite;
+}
+@keyframes mascot-bob {
+  0%, 100% { transform: translateY(0); }
+  50%      { transform: translateY(-0.06em); }
+}
+@keyframes mascot-blink {
+  0%, 90%, 100% { transform: scaleY(1); }
+  94%, 96%      { transform: scaleY(0.1); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .walle-greet,
+  .we-mascot-lens {
+    animation: none;
+  }
+}
 </style>
 </head>
 <body>
+<div class="wall-e-progress" id="scrollProgress" aria-hidden="true">
+  <div class="wall-e-track"></div>
+  <div class="wall-e-fill" id="wallEFill"></div>
+  <div class="wall-e" id="wallE">
+    <span class="wall-e-dust wall-e-dust--1" aria-hidden="true"></span>
+    <span class="wall-e-dust wall-e-dust--2" aria-hidden="true"></span>
+    <div class="wall-e-run">
+      <svg viewBox="0 0 60 40" role="img" aria-label="Wall-E">
+        <defs>
+          <linearGradient id="we-body" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0" stop-color="#ffffff" stop-opacity="0.3"/>
+            <stop offset="1" stop-color="#000000" stop-opacity="0.1"/>
+          </linearGradient>
+          <radialGradient id="we-lens" cx="0.36" cy="0.34" r="0.85">
+            <stop offset="0" stop-color="#ffffff" stop-opacity="0.6"/>
+            <stop offset="1" stop-color="#ffffff" stop-opacity="0"/>
+          </radialGradient>
+        </defs>
+        <rect x="4" y="28" width="48" height="11" rx="5.5" fill="#a6abb3"/>
+        <rect x="4" y="28" width="48" height="11" rx="5.5" fill="url(#we-body)"/>
+        <circle cx="14" cy="33.5" r="3.8" fill="#565c64"/>
+        <circle cx="30" cy="33.5" r="3.8" fill="#565c64"/>
+        <circle cx="46" cy="33.5" r="3.8" fill="#565c64"/>
+        <g stroke="#6f7680" stroke-width="1.5" stroke-linecap="round">
+          <line x1="8" y1="29" x2="8" y2="31"/>
+          <line x1="13" y1="29" x2="13" y2="31"/>
+          <line x1="18" y1="29" x2="18" y2="31"/>
+          <line x1="23" y1="29" x2="23" y2="31"/>
+          <line x1="28" y1="29" x2="28" y2="31"/>
+          <line x1="33" y1="29" x2="33" y2="31"/>
+          <line x1="38" y1="29" x2="38" y2="31"/>
+          <line x1="43" y1="29" x2="43" y2="31"/>
+        </g>
+        <g>
+          <path d="M19 20 L14 18 M14 18 l-3 -1 M14 18 l-3 2" stroke="#b9832e" stroke-width="2" stroke-linecap="round" fill="none"/>
+          <rect x="15" y="16" width="22" height="13" rx="3" fill="#e7b650"/>
+          <rect x="15" y="16" width="22" height="13" rx="3" fill="url(#we-body)"/>
+          <rect x="20" y="20" width="12" height="6" rx="2" fill="#c98f2f"/>
+          <rect x="25" y="11" width="6" height="7" rx="2" fill="#7d838c"/>
+          <rect x="20" y="2" width="9" height="11" rx="3" fill="#20242a"/>
+          <rect x="26" y="1" width="15" height="13" rx="3.5" fill="#2e343c"/>
+          <circle cx="38" cy="7.5" r="3.8" fill="#6fb0e6"/>
+          <circle cx="38" cy="7.5" r="3.8" fill="url(#we-lens)"/>
+          <circle cx="36.9" cy="6.5" r="1.1" fill="#ffffff" opacity="0.9"/>
+          <path d="M33 20 L39 22 M39 22 l3.5 -1 M39 22 l3.5 2" stroke="#b9832e" stroke-width="2" stroke-linecap="round" fill="none"/>
+        </g>
+      </svg>
+    </div>
+  </div>
+</div>
 
 <!-- Global nav -->
 <header class="global-nav">
@@ -653,8 +840,8 @@ ul { list-style: none; }
 <!-- Hero = 首页 -->
 <section class="hero" id="home">
   <div class="container">
-    <p class="hero-eyebrow">AI Product Manager</p>
-    <h1>你好，我是清晨 👋</h1>
+    <p class="hero-eyebrow"><span id="typewriter"></span><span class="typewriter-cursor" aria-hidden="true"></span></p>
+    <h1>你好，我是清晨 <span class="walle-greet" aria-hidden="true"><svg viewBox="0 0 64 60" role="img" aria-label="Wall-E"><defs><linearGradient id="wm-body" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#ffffff" stop-opacity="0.3"/><stop offset="1" stop-color="#000000" stop-opacity="0.1"/></linearGradient><radialGradient id="wm-lens" cx="0.36" cy="0.34" r="0.85"><stop offset="0" stop-color="#ffffff" stop-opacity="0.6"/><stop offset="1" stop-color="#ffffff" stop-opacity="0"/></radialGradient></defs><path d="M15 42 L8 47 M8 47 l-2 2 M8 47 l1 3" stroke="#b9832e" stroke-width="2.4" stroke-linecap="round" fill="none"/><rect x="4" y="30" width="11" height="28" rx="5" fill="#a6abb3"/><rect x="4" y="30" width="11" height="28" rx="5" fill="url(#wm-body)"/><rect x="49" y="30" width="11" height="28" rx="5" fill="#a6abb3"/><rect x="49" y="30" width="11" height="28" rx="5" fill="url(#wm-body)"/><g stroke="#6f7680" stroke-width="1.6" stroke-linecap="round"><line x1="5.5" y1="36" x2="13.5" y2="36"/><line x1="5.5" y1="43" x2="13.5" y2="43"/><line x1="5.5" y1="50" x2="13.5" y2="50"/><line x1="50.5" y1="36" x2="58.5" y2="36"/><line x1="50.5" y1="43" x2="58.5" y2="43"/><line x1="50.5" y1="50" x2="58.5" y2="50"/></g><rect x="15" y="27" width="34" height="31" rx="5" fill="#e7b650"/><rect x="15" y="27" width="34" height="31" rx="5" fill="url(#wm-body)"/><rect x="21" y="35" width="22" height="13" rx="2" fill="#c98f2f"/><path d="M49 34 L57 27 M57 27 l-1 -3 M57 27 l3 1" stroke="#b9832e" stroke-width="2.4" stroke-linecap="round" fill="none"/><g transform="rotate(-5 32 24)"><rect x="28" y="18" width="8" height="10" rx="2.5" fill="#7d838c"/><rect x="13" y="4" width="18" height="18" rx="6" fill="#2e343c"/><rect x="33" y="4" width="18" height="18" rx="6" fill="#2e343c"/><g class="we-mascot-lens"><circle cx="22" cy="13" r="6" fill="#6fb0e6"/><circle cx="22" cy="13" r="6" fill="url(#wm-lens)"/><circle cx="20.5" cy="11.6" r="1.5" fill="#ffffff" opacity="0.9"/></g><g class="we-mascot-lens"><circle cx="42" cy="13" r="6" fill="#6fb0e6"/><circle cx="42" cy="13" r="6" fill="url(#wm-lens)"/><circle cx="40.5" cy="11.6" r="1.5" fill="#ffffff" opacity="0.9"/></g></g></svg></span></h1>
     <p class="subhead">一名专注大模型应用落地的AI产品经理。我热衷于把 AI 能力翻译成真正可用的产品 —— 不做炫技的 Demo，只做实用、以用户为中心的产品。</p>
     <div class="hero-actions">
       <a href="#blog" class="btn btn-ghost">我的博客</a>
@@ -906,6 +1093,82 @@ showcase.addEventListener('mouseenter', stop);
 showcase.addEventListener('mouseleave', start);
 
 start();
+
+// ===== 打字机 =====
+const typewriterEl = document.getElementById('typewriter');
+const phrases = ['AI 产品经理', '大模型应用落地', 'AI 编程爱好者', '与 AI 一起改变世界'];
+let phraseIndex = 0, charIndex = 0, deleting = false;
+
+function typeTick() {
+  const word = phrases[phraseIndex];
+  if (!deleting) {
+    charIndex++;
+    typewriterEl.textContent = word.slice(0, charIndex);
+    if (charIndex === word.length) {
+      deleting = true;
+      window.setTimeout(typeTick, 1800);
+      return;
+    }
+    window.setTimeout(typeTick, 90);
+  } else {
+    charIndex--;
+    typewriterEl.textContent = word.slice(0, charIndex);
+    if (charIndex === 0) {
+      deleting = false;
+      phraseIndex = (phraseIndex + 1) % phrases.length;
+      window.setTimeout(typeTick, 350);
+      return;
+    }
+    window.setTimeout(typeTick, 45);
+  }
+}
+typeTick();
+
+// ===== 瓦力进度条 =====
+const wallEFill = document.getElementById('wallEFill');
+const wallE = document.getElementById('wallE');
+const WALLE_W = 34;
+let progressTicking = false;
+function updateProgress() {
+  const root = document.documentElement;
+  const max = root.scrollHeight - root.clientHeight;
+  const p = max > 0 ? root.scrollTop / max : 0;
+  if (wallEFill) wallEFill.style.transform = 'scaleX(' + p + ')';
+  if (wallE) {
+    const x = p * (window.innerWidth - WALLE_W) + WALLE_W / 2;
+    wallE.style.transform = 'translateX(' + x + 'px)';
+    wallE.style.opacity = p < 0.005 ? '0' : '1';
+  }
+}
+window.addEventListener('scroll', () => {
+  if (!progressTicking) {
+    window.requestAnimationFrame(() => { updateProgress(); progressTicking = false; });
+    progressTicking = true;
+  }
+}, { passive: true });
+window.addEventListener('resize', updateProgress);
+updateProgress();
+
+// ===== 滚动渐显 =====
+const revealTargets = document.querySelectorAll(
+  '.hero-eyebrow, .hero h1, .hero .subhead, .hero-actions, .showcase, .section-head, .post-item, .share-item, .link-card, .profile-card'
+);
+revealTargets.forEach(el => el.classList.add('reveal'));
+
+// 首屏内容做轻微错落的入场节奏
+revealTargets.forEach((el, i) => {
+  if (el.closest('.hero')) el.style.transitionDelay = (i * 90) + 'ms';
+});
+
+const revealObserver = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('is-visible');
+      revealObserver.unobserve(entry.target);
+    }
+  });
+}, { threshold: 0.12, rootMargin: '0px 0px -7% 0px' });
+revealTargets.forEach(el => revealObserver.observe(el));
 </script>
 </body>
 </html>
