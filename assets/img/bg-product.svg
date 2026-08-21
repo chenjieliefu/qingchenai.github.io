@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="1000" viewBox="0 0 800 1000" preserveAspectRatio="xMidYMid slice">
+  <defs>
+    <radialGradient id="pbg" cx="50%" cy="40%" r="85%">
+      <stop offset="0" stop-color="#17141f"/>
+      <stop offset="0.6" stop-color="#101116"/>
+      <stop offset="1" stop-color="#0b0c10"/>
+    </radialGradient>
+    <linearGradient id="pline" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#847dff" stop-opacity="0.55"/>
+      <stop offset="1" stop-color="#00b3dd" stop-opacity="0.3"/>
+    </linearGradient>
+    <filter id="pblur" x="-60%" y="-60%" width="220%" height="220%">
+      <feGaussianBlur stdDeviation="60"/>
+    </filter>
+  </defs>
+  <rect width="800" height="1000" fill="url(#pbg)"/>
+  <circle cx="180" cy="220" r="250" fill="#847dff" opacity="0.22" filter="url(#pblur)"/>
+  <circle cx="660" cy="800" r="260" fill="#00b3dd" opacity="0.16" filter="url(#pblur)"/>
+  <circle cx="640" cy="220" r="180" fill="#90b8f0" opacity="0.13" filter="url(#pblur)"/>
+  <g>
+    <rect x="110" y="210" width="250" height="170" rx="20" fill="#141419" stroke="#ffffff" stroke-opacity="0.08"/>
+    <rect x="140" y="240" width="120" height="14" rx="7" fill="#847dff" opacity="0.85"/>
+    <rect x="140" y="272" width="180" height="10" rx="5" fill="#ffffff" opacity="0.16"/>
+    <rect x="140" y="294" width="150" height="10" rx="5" fill="#ffffff" opacity="0.12"/>
+    <rect x="140" y="316" width="170" height="10" rx="5" fill="#ffffff" opacity="0.12"/>
+    <circle cx="322" cy="250" r="20" fill="none" stroke="#00b3dd" stroke-opacity="0.7" stroke-width="6" stroke-dasharray="80 46" stroke-linecap="round"/>
+  </g>
+  <g>
+    <rect x="460" y="430" width="34" height="120" rx="8" fill="#00b3dd" opacity="0.5"/>
+    <rect x="510" y="370" width="34" height="180" rx="8" fill="#847dff" opacity="0.68"/>
+    <rect x="560" y="450" width="34" height="100" rx="8" fill="#90b8f0" opacity="0.5"/>
+    <rect x="610" y="310" width="34" height="240" rx="8" fill="#dd90d8" opacity="0.5"/>
+    <rect x="460" y="555" width="184" height="2" fill="#ffffff" opacity="0.1"/>
+  </g>
+  <rect x="140" y="580" width="150" height="44" rx="22" fill="#ffffff" opacity="0.06"/>
+  <rect x="300" y="620" width="120" height="44" rx="22" fill="#847dff" opacity="0.26"/>
+  <rect x="180" y="680" width="170" height="44" rx="22" fill="#00b3dd" opacity="0.2"/>
+</svg>

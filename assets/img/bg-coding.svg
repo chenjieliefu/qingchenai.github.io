@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="1000" viewBox="0 0 800 1000" preserveAspectRatio="xMidYMid slice">
+  <defs>
+    <radialGradient id="cbg" cx="50%" cy="40%" r="85%">
+      <stop offset="0" stop-color="#0e1a20"/>
+      <stop offset="0.6" stop-color="#0d1218"/>
+      <stop offset="1" stop-color="#0a0b0d"/>
+    </radialGradient>
+    <filter id="cblur" x="-60%" y="-60%" width="220%" height="220%">
+      <feGaussianBlur stdDeviation="60"/>
+    </filter>
+  </defs>
+  <rect width="800" height="1000" fill="url(#cbg)"/>
+  <circle cx="640" cy="260" r="260" fill="#00b3dd" opacity="0.16" filter="url(#cblur)"/>
+  <circle cx="200" cy="780" r="240" fill="#90b8f0" opacity="0.14" filter="url(#cblur)"/>
+  <circle cx="420" cy="500" r="220" fill="#847dff" opacity="0.12" filter="url(#cblur)"/>
+  <g>
+    <rect x="120" y="240" width="520" height="420" rx="24" fill="#101317" stroke="#ffffff" stroke-opacity="0.08"/>
+    <circle cx="160" cy="278" r="7" fill="#ff5f57"/>
+    <circle cx="188" cy="278" r="7" fill="#febc2e"/>
+    <circle cx="216" cy="278" r="7" fill="#28c840"/>
+    <rect x="152" y="330" width="200" height="14" rx="7" fill="#00b3dd" opacity="0.75"/>
+    <rect x="152" y="362" width="340" height="12" rx="6" fill="#ffffff" opacity="0.16"/>
+    <rect x="152" y="394" width="300" height="12" rx="6" fill="#ffffff" opacity="0.12"/>
+    <rect x="152" y="426" width="360" height="12" rx="6" fill="#ffffff" opacity="0.12"/>
+    <rect x="182" y="470" width="260" height="12" rx="6" fill="#847dff" opacity="0.5"/>
+    <rect x="182" y="502" width="220" height="12" rx="6" fill="#ffffff" opacity="0.1"/>
+    <rect x="182" y="534" width="300" height="12" rx="6" fill="#ffffff" opacity="0.1"/>
+    <rect x="182" y="566" width="180" height="12" rx="6" fill="#dd90d8" opacity="0.45"/>
+  </g>
+  <g>
+    <rect x="180" y="720" width="150" height="44" rx="22" fill="#00b3dd" opacity="0.22"/>
+    <rect x="350" y="740" width="170" height="44" rx="22" fill="#ffffff" opacity="0.06"/>
+    <rect x="540" y="720" width="130" height="44" rx="22" fill="#847dff" opacity="0.24"/>
+  </g>
+</svg>
