@@ -1015,14 +1015,14 @@ mark {
   z-index: 6;
   width: min(214px, 64%);
   padding: 22px 18px 15px;
-  border: 1px solid rgba(54, 45, 36, 0.64);
+  border: 1px solid rgba(33, 30, 27, 0.62);
   border-radius: 2px;
   background:
-    linear-gradient(105deg, rgba(255, 255, 255, 0.28), transparent 34%),
-    #eee3ae;
+    linear-gradient(115deg, rgba(255, 255, 255, 0.52), transparent 42%),
+    #e9e9e5;
   box-shadow:
-    5px 7px 0 rgba(58, 45, 35, 0.18),
-    0 16px 30px rgba(58, 45, 35, 0.16);
+    4px 6px 0 rgba(44, 40, 36, 0.14),
+    0 16px 30px rgba(44, 40, 36, 0.12);
   opacity: 0;
   pointer-events: none;
   transform: translate(-34px, -50%) rotate(-3.2deg);
@@ -1036,8 +1036,9 @@ mark {
   left: 50%;
   width: 62px;
   height: 18px;
-  background: rgba(218, 199, 161, 0.72);
-  box-shadow: 0 1px 2px rgba(60, 45, 31, 0.12);
+  border: 1px solid rgba(70, 67, 62, 0.08);
+  background: rgba(202, 202, 195, 0.76);
+  box-shadow: 0 1px 2px rgba(44, 40, 36, 0.1);
   content: "";
   transform: translateX(-50%) rotate(2deg);
 }
@@ -1055,6 +1056,7 @@ mark {
 
 .wechat-note-title {
   margin-bottom: 10px;
+  color: var(--orange-deep);
   font-family: "Lyon", "Songti SC", serif;
   font-size: clamp(15px, 1.3vw, 19px);
   letter-spacing: 0.03em;
@@ -1086,9 +1088,9 @@ mark {
   justify-content: center;
   width: 100%;
   min-height: 30px;
-  border: 1px solid rgba(54, 45, 36, 0.62);
+  border: 1px solid rgba(33, 30, 27, 0.58);
   border-radius: 1px;
-  background: rgba(247, 244, 237, 0.48);
+  background: rgba(247, 244, 237, 0.58);
   cursor: pointer;
   font-size: 10px;
   font-weight: 700;
@@ -1097,7 +1099,7 @@ mark {
 }
 
 .wechat-note-close:hover {
-  background: rgba(247, 244, 237, 0.82);
+  background: rgba(255, 255, 255, 0.82);
 }
 
 .wechat-note-close:active {
