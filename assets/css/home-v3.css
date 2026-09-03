@@ -186,6 +186,27 @@ mark {
   white-space: nowrap;
 }
 
+.primary-nav .nav-github {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  transition: color 180ms ease;
+}
+
+.primary-nav .nav-github:hover {
+  color: var(--orange-deep);
+}
+
+.github-mark {
+  display: block;
+  flex: 0 0 auto;
+  width: 15px;
+  height: 15px;
+  background: currentColor;
+  -webkit-mask: url("../img/github-mark.svg") center / contain no-repeat;
+  mask: url("../img/github-mark.svg") center / contain no-repeat;
+}
+
 .primary-nav a::after,
 .nav-contact::after {
   position: absolute;
