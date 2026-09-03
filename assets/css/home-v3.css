@@ -1015,14 +1015,15 @@ mark {
   z-index: 6;
   width: min(214px, 64%);
   padding: 22px 18px 15px;
-  border: 1px solid rgba(47, 36, 29, 0.84);
+  border: 1.5px solid var(--ink);
   border-radius: 2px;
   background:
-    linear-gradient(115deg, rgba(255, 255, 255, 0.13), transparent 44%),
-    #6d594b;
+    linear-gradient(90deg, transparent 0 29px, rgba(200, 70, 24, 0.34) 29px 30px, transparent 30px),
+    repeating-linear-gradient(180deg, transparent 0 25px, rgba(168, 61, 22, 0.1) 25px 26px),
+    linear-gradient(135deg, rgba(255, 255, 255, 0.98), rgba(247, 244, 237, 0.99));
   box-shadow:
-    4px 6px 0 rgba(43, 32, 25, 0.2),
-    0 16px 30px rgba(43, 32, 25, 0.18);
+    4px 6px 0 rgba(33, 30, 27, 0.84),
+    0 16px 30px rgba(43, 32, 25, 0.15);
   opacity: 0;
   pointer-events: none;
   transform: translate(-34px, -50%) rotate(-3.2deg);
@@ -1049,6 +1050,10 @@ mark {
   transform: translate(0, -50%) rotate(-2deg);
 }
 
+.contact-right.is-wechat-open {
+  z-index: 4;
+}
+
 .wechat-note-title,
 .wechat-note-caption {
   text-align: center;
@@ -1056,7 +1061,7 @@ mark {
 
 .wechat-note-title {
   margin-bottom: 10px;
-  color: #f3ede3;
+  color: var(--orange-deep);
   font-family: "Lyon", "Songti SC", serif;
   font-size: clamp(15px, 1.3vw, 19px);
   letter-spacing: 0.03em;
@@ -1066,8 +1071,9 @@ mark {
   width: min(132px, 78%);
   margin: 0 auto;
   padding: 7px;
-  border: 1px solid rgba(54, 45, 36, 0.34);
+  border: 1px solid rgba(33, 30, 27, 0.42);
   background: var(--paper);
+  box-shadow: 2px 2px 0 rgba(33, 30, 27, 0.12);
 }
 
 .wechat-qr-frame img {
@@ -1077,7 +1083,7 @@ mark {
 
 .wechat-note-caption {
   margin: 9px 0 10px;
-  color: rgba(247, 244, 237, 0.82);
+  color: var(--ink-soft);
   font-size: 10px;
   letter-spacing: 0.04em;
 }
@@ -1088,23 +1094,25 @@ mark {
   justify-content: center;
   width: 100%;
   min-height: 30px;
-  border: 1px solid rgba(47, 36, 29, 0.72);
+  border: 1.5px solid var(--ink);
   border-radius: 1px;
-  background: rgba(247, 244, 237, 0.94);
-  color: #3e3027;
+  background: var(--orange);
+  color: #fffaf1;
+  box-shadow: 2px 2px 0 var(--ink);
   cursor: pointer;
   font-size: 10px;
   font-weight: 700;
   gap: 7px;
-  transition: background 180ms ease, transform 180ms ease;
+  transition: background 180ms ease, box-shadow 180ms ease, transform 180ms ease;
 }
 
 .wechat-note-close:hover {
-  background: #fffaf1;
+  background: var(--orange-deep);
 }
 
 .wechat-note-close:active {
-  transform: translateY(1px);
+  box-shadow: 1px 1px 0 var(--ink);
+  transform: translate(1px, 1px);
 }
 
 .sign-off {
