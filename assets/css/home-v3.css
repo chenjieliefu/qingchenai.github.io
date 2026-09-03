@@ -967,6 +967,9 @@ mark {
 }
 
 .contact-right {
+  position: relative;
+  isolation: isolate;
+  overflow: visible;
   padding-right: 8%;
 }
 
@@ -980,20 +983,125 @@ mark {
   border-top: 1px solid var(--ink);
 }
 
-.social-links a {
+.social-links a,
+.social-links button {
   display: flex;
   align-items: center;
   justify-content: space-between;
+  width: 100%;
   padding: 10px 2px;
+  border: 0;
   border-bottom: 1px solid var(--line);
+  background: transparent;
+  color: inherit;
+  cursor: pointer;
   font-size: clamp(11px, 1vw, 14px);
+  text-align: left;
   transition: color 180ms ease, padding 220ms var(--ease);
 }
 
-.social-links a:hover {
+.social-links a:hover,
+.social-links button:hover,
+.social-links button[aria-expanded="true"] {
   padding-right: 7px;
   padding-left: 7px;
   color: var(--orange-deep);
+}
+
+.wechat-note {
+  position: absolute;
+  top: 50%;
+  left: -65%;
+  z-index: 6;
+  width: min(214px, 64%);
+  padding: 22px 18px 15px;
+  border: 1px solid rgba(54, 45, 36, 0.64);
+  border-radius: 2px;
+  background:
+    linear-gradient(105deg, rgba(255, 255, 255, 0.28), transparent 34%),
+    #eee3ae;
+  box-shadow:
+    5px 7px 0 rgba(58, 45, 35, 0.18),
+    0 16px 30px rgba(58, 45, 35, 0.16);
+  opacity: 0;
+  pointer-events: none;
+  transform: translate(-34px, -50%) rotate(-3.2deg);
+  transform-origin: right center;
+  transition: opacity 180ms ease, transform 460ms var(--ease);
+}
+
+.wechat-note::before {
+  position: absolute;
+  top: -9px;
+  left: 50%;
+  width: 62px;
+  height: 18px;
+  background: rgba(218, 199, 161, 0.72);
+  box-shadow: 0 1px 2px rgba(60, 45, 31, 0.12);
+  content: "";
+  transform: translateX(-50%) rotate(2deg);
+}
+
+.contact-right.is-wechat-open .wechat-note {
+  opacity: 1;
+  pointer-events: auto;
+  transform: translate(0, -50%) rotate(-2deg);
+}
+
+.wechat-note-title,
+.wechat-note-caption {
+  text-align: center;
+}
+
+.wechat-note-title {
+  margin-bottom: 10px;
+  font-family: "Lyon", "Songti SC", serif;
+  font-size: clamp(15px, 1.3vw, 19px);
+  letter-spacing: 0.03em;
+}
+
+.wechat-qr-frame {
+  width: min(132px, 78%);
+  margin: 0 auto;
+  padding: 7px;
+  border: 1px solid rgba(54, 45, 36, 0.34);
+  background: var(--paper);
+}
+
+.wechat-qr-frame img {
+  width: 100%;
+  aspect-ratio: 1;
+}
+
+.wechat-note-caption {
+  margin: 9px 0 10px;
+  color: var(--ink-soft);
+  font-size: 10px;
+  letter-spacing: 0.04em;
+}
+
+.wechat-note-close {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  min-height: 30px;
+  border: 1px solid rgba(54, 45, 36, 0.62);
+  border-radius: 1px;
+  background: rgba(247, 244, 237, 0.48);
+  cursor: pointer;
+  font-size: 10px;
+  font-weight: 700;
+  gap: 7px;
+  transition: background 180ms ease, transform 180ms ease;
+}
+
+.wechat-note-close:hover {
+  background: rgba(247, 244, 237, 0.82);
+}
+
+.wechat-note-close:active {
+  transform: translateY(1px);
 }
 
 .sign-off {
@@ -1310,6 +1418,17 @@ mark {
 
   .paper-page {
     min-height: auto;
+  }
+
+  .wechat-note {
+    top: 50%;
+    left: 50%;
+    width: min(220px, calc(100vw - 64px));
+    transform: translate(-75%, -50%) rotate(-3.2deg);
+  }
+
+  .contact-right.is-wechat-open .wechat-note {
+    transform: translate(-50%, -50%) rotate(-2deg);
   }
 
   .page-kicker {

@@ -30,6 +30,44 @@ document.querySelectorAll('[data-current-year]').forEach((item) => {
   item.textContent = String(new Date().getFullYear());
 });
 
+const wechatToggle = document.querySelector('[data-wechat-toggle]');
+const wechatNote = document.querySelector('[data-wechat-note]');
+const wechatClose = document.querySelector('[data-wechat-close]');
+const wechatPage = wechatNote?.closest('.contact-right');
+
+const setWechatNoteState = (isOpen, restoreFocus = false) => {
+  if (!wechatToggle || !wechatNote || !wechatPage) return;
+  wechatToggle.setAttribute('aria-expanded', String(isOpen));
+  wechatNote.setAttribute('aria-hidden', String(!isOpen));
+  wechatPage.classList.toggle('is-wechat-open', isOpen);
+  if (isOpen) {
+    wechatNote.removeAttribute('inert');
+  } else {
+    wechatNote.setAttribute('inert', '');
+    if (restoreFocus) wechatToggle.focus({ preventScroll: true });
+  }
+};
+
+if (wechatToggle && wechatNote && wechatClose && wechatPage) {
+  wechatToggle.addEventListener('click', () => {
+    const isOpen = wechatToggle.getAttribute('aria-expanded') !== 'true';
+    setWechatNoteState(isOpen);
+  });
+
+  wechatClose.addEventListener('click', () => setWechatNoteState(false, true));
+
+  document.addEventListener('pointerdown', (event) => {
+    if (wechatToggle.getAttribute('aria-expanded') !== 'true') return;
+    if (wechatNote.contains(event.target) || wechatToggle.contains(event.target)) return;
+    setWechatNoteState(false);
+  });
+
+  document.addEventListener('keydown', (event) => {
+    if (event.key !== 'Escape' || wechatToggle.getAttribute('aria-expanded') !== 'true') return;
+    setWechatNoteState(false, true);
+  });
+}
+
 const notebook = document.querySelector('[data-notebook]');
 
 if (notebook) {
@@ -94,6 +132,7 @@ if (notebook) {
 
     const previous = pages[currentPage - 1];
     const next = pages[nextPage - 1];
+    setWechatNoteState(false);
     clearTurnClasses();
 
     pages.forEach((page) => {
@@ -164,6 +203,7 @@ if (notebook) {
 
   const closeBook = () => {
     if (locked || currentPage === 0) return;
+    setWechatNoteState(false);
     locked = true;
     readerView.classList.add('is-book-closing');
     history.replaceState(null, '', '#home');
