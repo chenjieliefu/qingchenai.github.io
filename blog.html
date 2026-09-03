@@ -1,146 +1,97 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="zh-CN">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M12 1.5c.9 4.9 4.6 8.6 9.5 9.5-4.9.9-8.6 4.6-9.5 9.5-.9-4.9-4.6-8.6-9.5-9.5 4.9-.9 8.6-4.6 9.5-9.5z' fill='%23847dff'/%3E%3C/svg%3E" rel="shortcut icon" type="image/svg+xml"/>
-  <title>全部博客 — QINGCHEN</title>
-  <meta name="description" content="QINGCHEN 的全部博客文章与发布记录。" />
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,300;0,400;1,300;1,400&family=Inter:wght@300;400;500&family=Roboto+Mono:wght@400;500&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="archive.css" />
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>全部博客 | QINGCHEN</title>
+  <meta name="description" content="清晨关于 AI 产品、智能体、人机协作与真实产品体验的博客。">
+  <meta name="theme-color" content="#e4e5e2">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="全部博客 | QINGCHEN">
+  <meta property="og:description" content="记录产品体验、真实试用和技术变化。">
+  <meta property="og:url" content="https://chenjieliefu.github.io/qingchenai.github.io/blog.html">
+  <meta property="og:image" content="https://chenjieliefu.github.io/qingchenai.github.io/assets/img/qingchen-notebook-open.webp">
+  <link rel="canonical" href="https://chenjieliefu.github.io/qingchenai.github.io/blog.html">
+  <link rel="icon" href="assets/img/qingchen-favicon.svg?v=2" type="image/svg+xml">
+  <link rel="preload" href="assets/img/qingchen-notebook-open.webp" as="image" type="image/webp" fetchpriority="high">
+  <link rel="stylesheet" href="assets/css/home-v3.css">
+  <link rel="stylesheet" href="assets/css/archive-v4.css">
 </head>
-<body>
-  <header class="sub-nav">
-    <div class="sub-nav__inner">
-      <a href="index.html" class="sub-nav__brand"><svg viewBox="0 0 24 24" style="width:17px;height:17px;vertical-align:-2px" aria-hidden="true"><path d="M12 1.5c.9 4.9 4.6 8.6 9.5 9.5-4.9.9-8.6 4.6-9.5 9.5-.9-4.9-4.6-8.6-9.5-9.5 4.9-.9 8.6-4.6 9.5-9.5z" fill="#847dff"/></svg> QINGCHEN</a>
-      <nav class="sub-nav__links">
+<body class="archive-page">
+  <a class="skip-link" href="#main">跳到主要内容</a>
+  <header class="site-header">
+    <div class="nav-shell">
+      <div class="brand" aria-label="QINGCHEN"><span class="brand-mark" aria-hidden="true"><span class="brand-pen">&#9998;&#65038;</span></span><span>QINGCHEN</span></div>
+      <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="primary-nav"><span class="menu-label">菜单</span></button>
+      <nav class="primary-nav" id="primary-nav" aria-label="主导航" data-open="false">
         <a href="index.html">首页</a>
-        <a href="blog.html" class="current">博客</a>
-        <a href="shares.html">优秀文章分享</a>
+        <a href="blog.html" aria-current="page">博客</a>
+        <a href="shares.html">文章分享</a>
+        <a href="index.html#about">关于我</a>
         <a href="https://github.com/chenjieliefu" target="_blank" rel="noopener">GitHub</a>
       </nav>
+      <a class="nav-contact" href="index.html#contact">联系我</a>
     </div>
   </header>
 
-  <section class="page-hero">
-    <a href="index.html#blog" class="back-link">‹ 返回首页博客</a>
-    <div><span class="page-kicker">全部博客</span></div>
-    <h1>我的所有文章</h1>
-    <p>记录个人思考、产品见解与 AI 研究。每一次发布，都是对问题更深入的一次回答。</p>
-  </section>
+  <main id="main" class="archive-main">
+    <section class="archive-stage" aria-labelledby="page-title" data-archive-reader>
+      <div class="archive-book-canvas">
+        <img src="assets/img/qingchen-notebook-open.webp" width="1672" height="941" alt="一本摊开的棕色工作笔记本">
+        <div class="archive-pages" data-archive-pages data-page-size="5">
+        <div class="archive-spread is-active" data-archive-page>
+          <div class="archive-paper archive-paper-left">
+            <div class="archive-heading-block">
+            <a class="archive-back" href="index.html#writing"><span aria-hidden="true">←</span> 返回笔记本</a>
+            <p class="page-kicker">原创博客</p>
+            <h1 id="page-title">我的所有博客</h1>
+            <p class="archive-intro">记录产品体验、真实试用和技术变化。每一次发布，都是对问题更深入的一次回答。</p>
+            </div>
 
-  <div class="archive-layout">
-    <section class="archive-list" aria-label="全部博客文章">
-      <article class="article-card" id="post-pi-harness">
-        <div class="article-meta">
-          <time datetime="2026-08-21">2026-08-21</time>
-          <span aria-hidden="true">·</span>
-          <span class="article-category">AI</span>
-          <span aria-hidden="true">·</span>
-          <span>人人都是产品经理</span>
+            <article class="archive-entry" id="post-pi-harness">
+              <p class="archive-meta"><time datetime="2026-08-21">2026.08.21</time><span>AI 产品</span></p>
+              <h2><a href="https://www.woshipm.com/ai/6451983.html" target="_blank" rel="noopener">Pi 说模型可以更换：AI 产品真正该留下的，是 Harness 吗？</a></h2>
+              <p>当模型可以更换，真正值得长期积累的是任务规则、工具权限、会话评测与模型适配能力。</p>
+            </article>
+
+            <article class="archive-entry" id="post-deepseek-harness">
+              <p class="archive-meta"><time datetime="2026-08-14">2026.08.14</time><span>AI 产品</span></p>
+              <h2><a href="https://www.woshipm.com/ai/6447090.html" target="_blank" rel="noopener">用 DeepSeek Harness 两小时做出一个 macOS 应用后，我看到了它的野心</a></h2>
+              <p>从“一切皆插件”出发，体验 Agent 如何搭建一套可以自由组合的工作环境。</p>
+            </article>
+          </div>
+
+          <div class="archive-paper archive-paper-right">
+            <article class="archive-entry" id="post-ai-data-assets">
+              <p class="archive-meta"><time datetime="2026-08-11">2026.08.11</time><span>AI 产品</span></p>
+              <h2><a href="https://www.woshipm.com/ai/6444287.html" target="_blank" rel="noopener">AI 最大的机会，不是硬件，而是数据资产</a></h2>
+              <p>硬件是入口，数据是原料，能被纠正并持续更新的个人模型才是真正值得积累的资产。</p>
+            </article>
+
+            <article class="archive-entry" id="post-ai-continuous-work">
+              <p class="archive-meta"><time datetime="2026-08-11">2026.08.11</time><span>人机协作</span></p>
+              <h2><a href="https://www.woshipm.com/ai/6444269.html" target="_blank" rel="noopener">当 AI 开始持续工作，聊天框还够用吗？</a></h2>
+              <p>任务面板、优先级和返工机制，正在重新定义人与 AI 的协作界面。</p>
+            </article>
+
+            <article class="archive-entry" id="post-loopit">
+              <p class="archive-meta"><time datetime="2026-08-10">2026.08.10</time><span>产品评测</span></p>
+              <h2><a href="https://www.woshipm.com/evaluating/6443336.html" target="_blank" rel="noopener">Loopit 已经让创作变简单，下一步该让作品走出去</a></h2>
+              <p>AI 创作产品还需要解决作品分发与被看见的问题。</p>
+            </article>
+            <p class="archive-note">继续写，也继续验证。</p>
+          </div>
         </div>
-        <h2><a href="blog/pi-harness.html">Pi说模型可以更换： AI产品真正该留下的，是Harness吗？</a></h2>
-        <p>当模型可以更换，真正值得长期积累的是任务规则、工具权限、会话评测与模型适配能力。</p>
-        <a href="blog/pi-harness.html" class="article-link">阅读全文 ‹</a>
-      </article>
-
-      <article class="article-card" id="post-deepseek-harness">
-        <div class="article-meta">
-          <time datetime="2026-08-14">2026-08-14</time>
-          <span aria-hidden="true">·</span>
-          <span class="article-category">AI</span>
-          <span aria-hidden="true">·</span>
-          <span>人人都是产品经理</span>
         </div>
-        <h2><a href="blog/deepseek-harness.html">用DeepSeek Harness两小时做出一个macOS应用后，我看到了它的野心</a></h2>
-        <p>从「一切皆插件」出发，体验 DeepSeek Harness 如何为 Agent 搭建一套可以自由组合的工作环境。</p>
-        <a href="blog/deepseek-harness.html" class="article-link">阅读全文 ‹</a>
-      </article>
-
-      <article class="article-card" id="post-ai-data-assets">
-        <div class="article-meta">
-          <time datetime="2026-08-11">2026-08-11</time>
-          <span aria-hidden="true">·</span>
-          <span class="article-category">AI</span>
-          <span aria-hidden="true">·</span>
-          <span>人人都是产品经理</span>
-        </div>
-        <h2><a href="blog/ai-data-assets.html">AI 最大的机会，不是硬件，而是数据资产</a></h2>
-        <p>硬件是入口，数据是原料，能被纠正并持续更新的个人模型才是真正值得积累的资产。</p>
-        <a href="blog/ai-data-assets.html" class="article-link">阅读全文 ‹</a>
-      </article>
-
-      <article class="article-card" id="post-ai-continuous-work">
-        <div class="article-meta">
-          <time datetime="2026-08-11">2026-08-11</time>
-          <span aria-hidden="true">·</span>
-          <span class="article-category">AI</span>
-          <span aria-hidden="true">·</span>
-          <span>人人都是产品经理</span>
-        </div>
-        <h2><a href="blog/ai-continuous-work.html">当AI 开始持续工作，聊天框还够用吗？</a></h2>
-        <p>当 AI 从一问一答走向持续执行，任务面板、优先级和返工机制正在重新定义人与 AI 的协作界面。</p>
-        <a href="blog/ai-continuous-work.html" class="article-link">阅读全文 ‹</a>
-      </article>
-
-      <article class="article-card" id="post-loopit">
-        <div class="article-meta">
-          <time datetime="2026-08-10">2026-08-10</time>
-          <span aria-hidden="true">·</span>
-          <span class="article-category">分析评测</span>
-          <span aria-hidden="true">·</span>
-          <span>人人都是产品经理</span>
-        </div>
-        <h2><a href="blog/loopit.html">Loopit已经让创作变简单，下一步该让作品走出去</a></h2>
-        <p>从一句话生成可玩的互动作品之后，AI 创作产品还需要解决作品分发与被看见的问题。</p>
-        <a href="blog/loopit.html" class="article-link">阅读全文 ‹</a>
-      </article>
-    </section>
-
-    <aside class="timeline-panel" aria-labelledby="blog-timeline-title">
-      <h2 id="blog-timeline-title">发布时间线</h2>
-      <p class="timeline-intro">按文章发布时间倒序排列</p>
-      <ol class="timeline">
-        <li class="timeline-item">
-          <time datetime="2026-08-21">2026-08-21</time>
-          <a href="#post-pi-harness">Pi 与 Harness 的产品控制权</a>
-        </li>
-        <li class="timeline-item">
-          <time datetime="2026-08-14">2026-08-14</time>
-          <a href="#post-deepseek-harness">DeepSeek Harness 与 Agent 工作环境</a>
-        </li>
-        <li class="timeline-item">
-          <time datetime="2026-08-11">2026-08-11</time>
-          <a href="#post-ai-data-assets">AI 的机会与数据资产</a>
-        </li>
-        <li class="timeline-item">
-          <time datetime="2026-08-11">2026-08-11</time>
-          <a href="#post-ai-continuous-work">持续工作的 AI 与新交互</a>
-        </li>
-        <li class="timeline-item">
-          <time datetime="2026-08-10">2026-08-10</time>
-          <a href="#post-loopit">Loopit 的创作与分发</a>
-        </li>
-      </ol>
-    </aside>
-  </div>
-
-  <footer class="simple-footer">
-    <div class="simple-footer__inner">
-      <div class="simple-footer__top">
-        <a href="index.html" class="simple-footer__brand">QINGCHEN</a>
-        <nav class="simple-footer__links">
-          <a href="index.html">首页</a>
-          <a href="blog.html">博客</a>
-          <a href="shares.html">优秀文章分享</a>
-          <a href="index.html#about">关于我</a>
-          <a href="https://github.com/chenjieliefu" target="_blank" rel="noopener">GitHub</a>
-        </nav>
       </div>
-      <div class="simple-footer__legal">© QINGCHEN · 保留所有权利。</div>
-    </div>
-  </footer>
+      <div class="archive-controls" aria-label="博客翻页">
+        <button class="archive-page-control" type="button" data-archive-prev><span aria-hidden="true">←</span> 上一页</button>
+        <p><span data-archive-current>1</span> / <span data-archive-total>1</span></p>
+        <button class="archive-page-control" type="button" data-archive-next>下一页 <span aria-hidden="true">→</span></button>
+      </div>
+    </section>
+  </main>
+  <script src="assets/js/home-v3.js" defer></script>
+  <script src="assets/js/archive-v4.js" defer></script>
 </body>
 </html>
